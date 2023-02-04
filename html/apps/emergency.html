@@ -1,0 +1,692 @@
+<head>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+        integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+    <script src="https://use.fortawesome.com/1ce05b4b.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" />-->
+</head>
+<div class="custom-content">
+    <div class="custom-header">
+        <p id="custom-title">Neuer Dispatch</p>
+        <div id="emergency-button-new">
+            <i class="fa-regular fa-file-plus"></i>
+        </div>
+    </div>
+    <!-- Dispatch -->
+    <div class="custom-box" id="dispatch-box">
+        <div class="form-group">
+            <label for="dispatch-text">Was ist passiert?</label>
+            <textarea class="form-control" id="dispatch-text" rows="6"></textarea>
+        </div>
+        <div class="form-group" id="dispatch-toggles">
+            <label>Benachrichtigung senden an</label><br />
+            <!--<div class="form-check">
+                <label class="custom-switch">
+                    <input type="checkbox" id="dispatch-switch-lspd">
+                    <span class="custom-slider round"></span>&nbsp;
+                </label>
+                <span>LSPD</span>
+            </div>-->
+        </div>
+        <button id="dispatch-send" class="btn btn-danger btn-block">Notruf absetzen</button>
+        <div class="disclaimer">
+            <i class="fa-duotone fa-square-info"></i>
+            <div class="disclaimer-info-text">
+                <p>Ihre Rufnummer, sowie ihr GPS-Standort werden automatisch übermittelt. Missbrauch ist strafbar!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Warning -->
+    <div class="custom-box" id="warning-box">
+        <div class="warning-background">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="emergency-message-new" id="warning-new">
+            <div class="form-group">
+                <input class="form-control" id="warning-title" placeholder="Titel">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="warning-text" rows="8" placeholder="Warnmeldung"></textarea>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="warning-severity">
+                    <option selected value="1">Information</option>
+                    <option value="2">Warnung</option>
+                    <option value="3">Warnung auf höchster Stufe</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-block">Warnung erstellen</button><br />
+            <div class="form-group">
+                <b>Erläuterung der Warnstufen</b>
+                <ul>
+                    <li><b>Information:</b> Mitteilung an Staatsbürger über generelles, nicht-akutes Ereignis</li>
+                    <li><b>Warnung:</b> Akute Gefahr für die Bevölkerung, Bedrohungslage, aktiver Schütze</li>
+                    <li><b>Warnung auf höchster Stufe:</b> Nur im Ausnahmezustand zu benutzen. Terrorwarnung,
+                        Naturkatastrophe</li>
+                </ul>
+            </div>
+        </div>
+        <div class="emergency-messages" id="warning-messages">
+            <!--<div class="emergency-message">
+                <span class="emergency-message-header">TEST WARNUNG</span>
+                <span class="emergency-message-time">18:31</span>
+                <span class="emergency-message-from">Herausgegeben von: LSMD</span>
+                <p class="emergency-message-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit </p>
+                <div class="emergency-message-clear"><span>Warnung aufheben</span>&nbsp;<i
+                        class="fa-solid fa-check"></i></div>
+            </div>-->
+        </div>
+    </div>
+    <!-- Pager -->
+    <div class="custom-box" id="pager-box">
+        <div class="emergency-message-new" id="pager-new">
+            <div class="form-group">
+                <input class="form-control" id="pager-title" placeholder="Titel">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="pager-text" rows="6" placeholder="Nachricht"></textarea>
+            </div>
+            <div class="form-group" id="pager-toggles">
+                <label>Benachrichtigung senden an</label><br />
+            </div>
+            <button type="button" class="btn btn-primary btn-block">Pager</button><br />
+        </div>
+        <div class="emergency-messages" id="pager-messages">
+            <!--<div class="emergency-message">
+                <span class="emergency-message-header">Pager Test</span>
+                <span class="emergency-message-time">18:31</span>
+                <p class="emergency-message-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit </p>
+                <div class="emergency-message-clear"><span>Gelesen</span>&nbsp;<i
+                        class="fa-solid fa-check"></i></div>
+            </div>-->
+        </div>
+    </div>
+    <!-- Settings -->
+    <div class="custom-box" id="settings-box">
+        <div class="setting-container">
+            <span>Warnmeldungen</span>
+            <div class="setting">
+                <label class="custom-switch">
+                    <input type="checkbox" id="setting-warning1">
+                    <span class="custom-slider round"></span>&nbsp;
+                </label>
+                <span>Informationen erhalten</span>
+            </div>
+            <div class="setting">
+                <label class="custom-switch">
+                    <input type="checkbox" id="setting-warning2">
+                    <span class="custom-slider round"></span>&nbsp;
+                </label>
+                <span>Warnungen erhalten</span>
+            </div>
+            <div class="setting">
+                <label class="custom-switch">
+                    <input type="checkbox" id="setting-warning3">
+                    <span class="custom-slider round"></span>&nbsp;
+                </label>
+                <span>Warnungen auf höchster Stufe</span>
+            </div>
+        </div>
+        <div class="setting-container">
+            <span>Pager</span>
+            <div class="setting">
+                <label class="custom-switch">
+                    <input type="checkbox" id="setting-pager">
+                    <span class="custom-slider round"></span>&nbsp;
+                </label>
+                <span>Pager-Benachrichtigungen erhalten</span>
+            </div>
+        </div>
+    </div>
+    <div class="custom-footer">
+        <div class="menu-icon menu-active" id="dispatch">
+            <i class="fa-solid fa-light-emergency-on"></i>
+            <p class="subtitle">Dispatch</p>
+        </div>
+        <div class="menu-icon" id="warning">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p class="subtitle">Warnungen</p>
+        </div>
+        <div class="menu-icon" id="pager">
+            <i class="fa-solid fa-pager"></i>
+            <p class="subtitle">Pager</p>
+        </div>
+        <div class="menu-icon" id="settings">
+            <i class="fa-solid fa-gear"></i>
+            <p class="subtitle">Settings</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let sv_currentPage;
+    let settings;
+    // browser side
+    window.addEventListener('message', (event) => {
+        if ((event.data.action === 'emergencyWarningMessage' || event.data.action === 'emergencyPagerMessage') && $("#" + event.data.uniqueId).length) return;
+        if (event.data.action === 'emergencyWarningMessage') {
+            addWarningMessage(event.data)
+            let severity = event.data.warningSeverity * 1;
+            if(settings.notifications["warning"+severity]) {
+                QS.Phone.Notifications.Add("./img/apps/dispatch.png", "NOTFALLMELDUNG", event.data.warningTitle)
+                if (severity == 3) {
+                    new Audio("sounds/warning3.mp3").play();
+                }
+            }
+        }
+        if (event.data.action === 'clearMessage') {
+            removeMessage(event.data)
+        }
+        if (event.data.action === 'emergencyPagerMessage') {
+            if(settings.notifications.pager) {
+                addPagerMessage(event.data)
+                QS.Phone.Notifications.Add("./img/apps/dispatch.png", "Pager", event.data.pagerTitle)
+                new Audio("sounds/pager.mp3").play();
+            }
+        }
+        if (event.data.action === 'emergencySettings') {
+            event.data.action = undefined
+            settings = event.data
+            $("#setting-warning1").prop('checked', event.data.notifications.warning_1)
+            $("#setting-warning2").prop('checked', event.data.notifications.warning_2)
+            $("#setting-warning3").prop('checked', event.data.notifications.warning_3)
+            $("#setting-pager").prop('checked', event.data.notifications.pager)
+        }
+    });
+    function hideBoxes() {
+        $("#dispatch-box").hide()
+        $("#warning-box").hide()
+        $("#warning-new").hide()
+        $("#emergency-button-new").hide()
+        $(".emergency-message-clear").hide()
+        $("#pager-box").hide()
+        $("#pager-messages").hide()
+        $("#pager-new").hide()
+        $("#settings-box").hide()
+    }
+    async function checkAccess(item) {
+        await $.post(`https://${GetParentResourceName()}/checkAccess`, JSON.stringify({ configItem: item })).done(function (result) {
+            result ? $("#emergency-button-new").show() : $("#emergency-button-new").hide()
+            result ? $(".emergency-message-clear").show() : $(".emergency-message-clear").hide()
+        })
+    }
+    function buttonNew() {
+        switch (sv_currentPage) {
+            case "warning": {
+                $("#warning-messages").hide()
+                $("#warning-new").show()
+                $("#custom-title").text("Neue Meldung")
+            }
+            case "pager": {
+                $("#pager-messages").hide()
+                $("#pager-new").show()
+                $("#custom-title").text("Neue Meldung")
+                $("#custom-title")
+                $("#pager-toggles div").remove()
+                getPagerOptions()
+            }
+        }
+    }
+    function loadPage(name) {
+        hideBoxes()
+        sv_currentPage = name
+        switch (name) {
+            case "dispatch": {
+                $("#custom-title").text("Neuer Dispatch")
+                $("#dispatch-box").show()
+                break;
+            }
+            case "warning": {
+                $("#custom-title").text("Warnmeldungen")
+                $("#warning-box").show()
+                $("#warning-messages").show()
+                checkAccess("warning")
+                break;
+            }
+            case "pager": {
+                $("#custom-title").text("Pager")
+                $("#pager-box").show()
+                $("#pager-messages").show()
+                checkAccess("pager")
+                $("#pager i").removeClass("blink")
+                break;
+            }
+            case "settings": {
+                $("#custom-title").text("Einstellungen")
+                $("#settings-box").show()
+                break;
+            }
+        }
+    }
+
+    function sendDispatch() {
+        let dispatchText = $("#dispatch-text").val()
+        dispatchText = dispatchText.length == 0 ? "Es wurde keine Nachricht übermittelt" : dispatchText
+        let checkedVals = $('.dispatch-switch:checkbox:checked').map(function () {
+            return $(this).data()
+        }).get();
+        if (checkedVals.length == 0) return;
+        $("#dispatch-text").val("")
+        $(".dispatch-switch").prop('checked', false)
+
+        QS.Phone.Notifications.Add("./img/apps/dispatch.png", "Dispatch", "Notruf wurde abgesetzt")
+        $.post(`https://${GetParentResourceName()}/sendDispatch`, JSON.stringify({ jobs: checkedVals.map(j => j.job), respondString: checkedVals.map(j => j.display).join("/"), message: dispatchText }))
+    }
+
+    function sendWarningMessage() {
+        let warningTitle = $("#warning-title").val()
+        let warningText = $("#warning-text").val()
+        let warningSeverity = $("#warning-severity").val()
+        if (warningTitle.length < 3 || warningText.length < 3) {
+            return;
+        }
+        $("#warning-title").val("")
+        $("#warning-text").val("")
+        $("#warning-severity").val(1)
+        QS.Phone.Notifications.Add("./img/apps/dispatch.png", "Dispatch", "Warnung gesendet")
+        $.post(`https://${GetParentResourceName()}/sendWarningMessage`, JSON.stringify({ uniqueId: "WRN" + (new Date().getTime()), warningTitle: warningTitle, warningText: warningText, warningSeverity: warningSeverity, time: new Date().toLocaleTimeString('de-DE').substring(0, 5) }))
+        loadPage("warning")
+    }
+
+    function sendPagerMessage() {
+        let pagerTitle = $("#pager-title").val()
+        let pagerText = $("#pager-text").val()
+        if (pagerTitle.length < 3 || pagerText.length < 3) {
+            return;
+        }
+        let checkedVals = $('.pager-switch:checkbox:checked').map(function () {
+            return $(this).data()
+        }).get();
+        if (checkedVals.length == 0) return;
+        $("#pager-title").val("")
+        $("#pager-text").val("")
+        QS.Phone.Notifications.Add("./img/apps/dispatch.png", "Dispatch", "Mitteilung gesendet")
+        $.post(`https://${GetParentResourceName()}/sendPagerMessage`, JSON.stringify({ uniqueId: "PGE" + (new Date().getTime()), pagerTitle: pagerTitle, pagerText: pagerText, time: new Date().toLocaleTimeString('de-DE').substring(0, 5), jobs: checkedVals.map(j => j.jobs).flat() }))
+        loadPage("pager")
+    }
+
+    function addDispatchOption(details) {
+        let toggle = $('<div/>', { class: 'form-check' }).appendTo('#dispatch-toggles')
+        let label = $('<label/>', { class: 'custom-switch' }).appendTo(toggle)
+        label.append($('<input/>', { type: 'checkbox', class: 'dispatch-switch' }).data('job', details.job).data('display', details.display))
+        label.append('<span class="custom-slider round"></span>&nbsp;')
+        toggle.append($('<span/>', { text: details.display }))
+    }
+
+    function addPagerOption(details) {
+        let toggle = $('<div/>', { class: 'form-check' }).appendTo('#pager-toggles')
+        let label = $('<label/>', { class: 'custom-switch' }).appendTo(toggle)
+        label.append($('<input/>', { type: 'checkbox', class: 'pager-switch' }).data('jobs', details.jobs).data('display', details.display))
+        label.append('<span class="custom-slider round"></span>&nbsp;')
+        toggle.append($('<span/>', { text: details.display }))
+    }
+
+    function addWarningMessage(details) {
+        let message = $('<div/>', { class: 'emergency-message', id: details.uniqueId }).appendTo('#warning-messages')
+        message.append($('<span/>', { class: 'emergency-message-header', text: details.warningTitle }))
+        message.append($('<span/>', { class: 'emergency-message-time', text: details.time }))
+        message.append($('<span/>', { class: 'emergency-message-from', text: 'Herausgegeben von: ' + details.job }))
+        message.append($('<p/>', { class: 'emergency-message-content', text: details.warningText }))
+        let clear = $('<div/>', { class: 'emergency-message-clear' })
+        clear.append('<span>Warnung aufheben</span>&nbsp;<i class="fa-solid fa-check"></i>')
+        message.append(clear)
+    }
+
+    function addPagerMessage(details) {
+        let message = $('<div/>', { class: 'emergency-message', id: details.uniqueId }).appendTo('#pager-messages')
+        message.append($('<span/>', { class: 'emergency-message-header', text: details.pagerTitle }))
+        message.append($('<span/>', { class: 'emergency-message-time', text: details.time }))
+        message.append($('<p/>', { class: 'emergency-message-content', text: details.pagerText }))
+        let clear = $('<div/>', { class: 'emergency-message-clear' })
+        clear.append('<span>Gelesen</span>&nbsp;<i class="fa-solid fa-check"></i>')
+        message.append(clear)
+        if (sv_currentPage != "pager")
+            $("#pager i").addClass("blink")
+    }
+
+    function changeSetting() {
+        let warning1 = $("#setting-warning1").prop("checked")
+        let warning2 = $("#setting-warning2").prop("checked")
+        let warning3 = $("#setting-warning3").prop("checked")
+        let pager = $("#setting-pager").prop("checked")
+        settings = {
+            notifications: {
+                warning_1: warning1,
+                warning_2: warning2,
+                warning_3: warning3,
+                pager: pager,
+            }
+        }
+        $.post(`https://${GetParentResourceName()}/updateSettings`, JSON.stringify(settings))
+    }
+
+    function getPagerOptions() {
+        $.post(`https://${GetParentResourceName()}/getPagerOptions`, JSON.stringify({})).done(function (data) {
+            JSON.parse(data).forEach(d => addPagerOption(d))
+        })
+    }
+
+    function removeMessage(details) {
+        $("#" + details.uniqueId).remove()
+    }
+
+    function clearMessage() {
+        let messageId = $(this).parent(".emergency-message").attr("id")
+        $.post(`https://${GetParentResourceName()}/clearMessage`, JSON.stringify({ uniqueId: messageId }))
+    }
+
+    $.post(`https://${GetParentResourceName()}/getDispatchOptions`, JSON.stringify({})).done(function (data) {
+        JSON.parse(data).forEach(d => addDispatchOption(d))
+    })
+
+    $(document).on('click', '.menu-icon', function () {
+        $("div.menu-icon").removeClass("menu-active");
+        $(this).addClass("menu-active");
+        loadPage($(this).attr("id"))
+    })
+    $(document).on('click', '#emergency-button-new', buttonNew)
+    $(document).on('click', '#dispatch-send', sendDispatch)
+    $(document).on('click', '#warning-new button', sendWarningMessage)
+    $(document).on('click', '#pager-new button', sendPagerMessage)
+    $(document).on('click', '#warning-messages .emergency-message-clear', clearMessage)
+    $(document).on('click', '#pager-messages .emergency-message-clear', function () { $(this).parent(".emergency-message").remove() })
+    $('.setting input').change(changeSetting)
+
+    loadPage("dispatch");
+</script>
+
+<style>
+    :root {
+        color: #212529;
+        --menu-back: #fefefe;
+        --background: #eaeaea;
+        --text-secondary: #8a8a8a;
+    }
+
+    .btn:focus {
+        outline: 0;
+    }
+
+    .custom-content {
+        font-family: "ios", Helvetica, sans-serif;
+        height: 100%;
+        width: 100%;
+        background: var(--background);
+        overflow: hidden;
+    }
+
+    .custom-header {
+        position: relative;
+        height: 80px;
+        width: 100%;
+        background: var(--menu-back);
+        border-bottom: 1px solid rgba(109, 108, 108, 0.473);
+        box-shadow: 0 4px 9px -8px #000000;
+    }
+
+    .custom-header>p {
+        position: relative;
+        top: 30px;
+        font-size: 20px;
+        text-align: center;
+        font-family: Lato, Helvetica, sans-serif;
+        padding: 10px;
+        font-weight: 600;
+    }
+
+    .custom-footer {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 75px;
+        top: 585px;
+        font-size: 12px;
+        background: var(--menu-back);
+        justify-content: space-around;
+        text-align: center;
+        border-top: 1px solid rgba(109, 108, 108, 0.473);
+        box-shadow: 0 -3px 7px rgba(0, 0, 0, 0.2)
+    }
+
+    .menu-icon {
+        padding: 10px;
+    }
+
+    .menu-icon>i {
+        position: relative;
+        font-size: 22px;
+        cursor: pointer
+    }
+
+    .menu-active {
+        color: #63a7d5
+    }
+
+    .blink {
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0% {
+            color: #000;
+        }
+
+        40% {
+            color: red;
+        }
+
+        60% {
+            color: red;
+        }
+
+        100% {
+            color: #000;
+        }
+    }
+
+    .custom-box {
+        position: relative;
+        padding: 12px;
+        overflow-y: auto;
+        height: 485px;
+    }
+
+    .warning-background {
+        position: absolute;
+        display: flex;
+        top: 120px;
+        left: 10px;
+        right: 10px;
+        justify-content: center;
+        font-size: 200px;
+        color: #ffcccb;
+    }
+
+    #emergency-button-new {
+        position: absolute;
+        display: none;
+        cursor: pointer;
+        top: 40px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    #emergency-button-new:hover {
+        color: #63a7d5
+    }
+
+    .emergency-message-new {
+        position: relative;
+        display: none;
+        z-index: 1;
+    }
+
+    #warning-new {
+        display: none;
+    }
+
+    .warning-explanation {
+        padding-top: 10px;
+    }
+
+    .emergency-messages {
+        position: relative;
+        z-index: 1;
+    }
+
+    .emergency-message {
+        background-color: var(--menu-back);
+        padding: 12px;
+        margin: 10px 0 0 0;
+        border-radius: 17px;
+    }
+
+    .emergency-message-header {
+        font-weight: bold;
+    }
+
+    .emergency-message-time {
+        float: right;
+    }
+
+    .emergency-message-from {
+        font-size: 12px;
+        display: block;
+    }
+
+    .emergency-message-clear {
+        position: relative;
+        float: right;
+        cursor: pointer;
+        bottom: 10px;
+    }
+
+    .emergency-message-clear span {
+        display: none;
+    }
+
+    .emergency-message-clear:hover>span {
+        display: inline;
+    }
+
+    .emergency-message-clear:hover {
+        color: #5cb85c;
+        transition: .4s;
+    }
+
+    .disclaimer {
+        position: relative;
+        margin-top: 16px;
+        height: 70px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 2px 8px;
+        border-radius: 4px
+    }
+
+    .disclaimer i {
+        position: absolute;
+        font-size: 30px;
+        padding: 13px;
+        top: 8px
+    }
+
+    .disclaimer-info-text {
+        position: relative;
+        padding-left: 50px
+    }
+
+    .disclaimer-info-text p {
+        position: relative;
+        text-align: left;
+        padding: 10px;
+        font-size: 12px
+    }
+
+    .setting-container {
+        background-color: #fefefe;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 2px 8px;
+        padding: 5px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .setting {
+        padding: 2px;
+    }
+
+    .setting-container>span {
+        font-weight: bold;
+    }
+
+    .custom-switch {
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 19px;
+    }
+
+    .custom-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .custom-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .custom-slider:before {
+        position: absolute;
+        content: "";
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.custom-slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.custom-slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.custom-slider:before {
+        -webkit-transform: translateX(13px);
+        -ms-transform: translateX(13px);
+        transform: translateX(13px);
+    }
+
+    /* Rounded custom-sliders */
+    .custom-slider.round {
+        border-radius: 17px;
+    }
+
+    .custom-slider.round:before {
+        border-radius: 50%;
+    }
+</style>
