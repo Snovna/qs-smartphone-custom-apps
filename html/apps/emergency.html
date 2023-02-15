@@ -179,7 +179,7 @@
         if (event.data.action === 'emergencyWarningMessage') {
             addWarningMessage(event.data)
             let severity = event.data.warningSeverity * 1;
-            if(settings.notifications["warning"+severity]) {
+            if(settings.notifications["warning_"+severity]) {
                 QS.Phone.Notifications.Add("./img/apps/dispatch.png", "NOTFALLMELDUNG", event.data.warningTitle)
                 if (severity == 3) {
                     new Audio("sounds/warning3.mp3").play();
@@ -421,7 +421,7 @@
 
     .custom-content {
         font-family: "ios", Helvetica, sans-serif;
-        height: 100%;
+        height: 660px;
         width: 100%;
         background: var(--background);
         overflow: hidden;
